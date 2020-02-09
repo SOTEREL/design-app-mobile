@@ -4,6 +4,16 @@ import { StyleSheet } from 'react-native';
 import MapView, { UrlTile } from 'react-native-maps';
 
 export default function Map() {
+  const ROAD_BACKGROUND = 'http://c.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  const SATELLITE_BACKGROUND = ('https://wxs.ign.fr/choisirgeoportail/geoportail/wmts?'+
+            '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+            '&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&FORMAT=image/jpeg'+
+            '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}');
+  const CADASTRALPARCELS_BACKGROUND = ('https://wxs.ign.fr/choisirgeoportail/geoportail/wmts?'+
+            '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+            '&LAYER=CADASTRALPARCELS.PARCELS&STYLE=normal&FORMAT=image/png'+
+            '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}');
+
   return (
     <MapView
       style={styles.map}
@@ -15,7 +25,7 @@ export default function Map() {
       }}
     >
       <UrlTile
-        urlTemplate="http://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        urlTemplate={CADASTRALPARCELS_BACKGROUND}
       />
     </MapView>
   );
