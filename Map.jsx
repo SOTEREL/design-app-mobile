@@ -11,7 +11,7 @@ export default function Map() {
             '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}');
   const CADASTRALPARCELS_BACKGROUND = ('https://wxs.ign.fr/choisirgeoportail/geoportail/wmts?'+
             '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
-            '&LAYER=CADASTRALPARCELS.PARCELS&STYLE=normal&FORMAT=image/png'+
+            '&LAYER=CADASTRALPARCELS.PARCELS&STYLE=bdparcellaire&FORMAT=image/png'+
             '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}');
 
   return (
@@ -24,6 +24,9 @@ export default function Map() {
         longitudeDelta: 0.0421,
       }}
     >
+      <UrlTile
+        urlTemplate={SATELLITE_BACKGROUND}
+      />
       <UrlTile
         urlTemplate={CADASTRALPARCELS_BACKGROUND}
       />
